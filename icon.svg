@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- WhatsApp+ app icon: a chat bubble with a plus on navy. macOS adds the rounded mask and glass edge. Render: make-icon.swift -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a4b93"/><stop offset="1" stop-color="#0c1938"/></linearGradient>
+    <linearGradient id="glyph" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9e4ff"/></linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <path fill="url(#glyph)" d="M272 236H752A120 120 0 0 1 872 356V616A120 120 0 0 1 752 736H452L300 852L318 736H272A120 120 0 0 1 152 616V356A120 120 0 0 1 272 236Z"/>
+  <rect x="377" y="454" width="270" height="64" rx="32" fill="#1d3672"/>
+  <rect x="480" y="351" width="64" height="270" rx="32" fill="#1d3672"/>
+</svg>

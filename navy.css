@@ -1,0 +1,57 @@
+/* WhatsApp Web design tokens (--WDS-*) mapped to a navy palette.
+   Token names come from WhatsApp's own CSS; if a grey/green patch appears after a WhatsApp update, a token was renamed. */
+:root {
+  --WDS-background-wash-plain: #0a1325 !important;          --WDS-background-wash-plain-RGB: 10, 19, 37 !important;
+  --WDS-background-wash-inset: #0a1325 !important;          --WDS-background-wash-inset-RGB: 10, 19, 37 !important;
+  --WDS-background-elevated-wash-plain: #0d182d !important; --WDS-background-elevated-wash-plain-RGB: 13, 24, 45 !important;
+  --WDS-background-elevated-wash-inset: #0d182d !important; --WDS-background-elevated-wash-inset-RGB: 13, 24, 45 !important;
+  --WDS-surface-default: #0a1325 !important;                --WDS-surface-default-RGB: 10, 19, 37 !important;
+  --WDS-surface-emphasized: #0d182d !important;
+  --WDS-surface-elevated-default: #101c35 !important;       --WDS-surface-elevated-default-RGB: 16, 28, 53 !important;
+  --WDS-surface-elevated-emphasized: #16264a !important;
+  --WDS-components-surface-nav-bar: #070e1c !important;     --WDS-components-surface-nav-bar-RGB: 7, 14, 28 !important;
+  --WDS-components-filter-surface-selected: #1a2d5a !important; --WDS-components-filter-surface-selected-RGB: 26, 45, 90 !important;
+  --WDS-systems-chat-background-wallpaper: #070e1c !important; --WDS-systems-chat-background-wallpaper-RGB: 7, 14, 28 !important;
+  --WDS-systems-chat-surface-tray: #0a1325 !important;      --WDS-systems-chat-surface-tray-RGB: 10, 19, 37 !important;
+  --WDS-systems-chat-surface-composer: #101c35 !important;  --WDS-systems-chat-surface-composer-RGB: 16, 28, 53 !important;
+  --WDS-systems-bubble-surface-incoming: #101c35 !important; --WDS-systems-bubble-surface-incoming-RGB: 16, 28, 53 !important;
+  --WDS-systems-bubble-surface-outgoing: #223a71 !important; --WDS-systems-bubble-surface-outgoing-RGB: 34, 58, 113 !important;
+  --WDS-systems-bubble-surface-system: #0d182d !important;  --WDS-systems-bubble-surface-system-RGB: 13, 24, 45 !important;
+  --WDS-systems-bubble-surface-e2e: #0d182d !important;     --WDS-systems-bubble-surface-e2e-RGB: 13, 24, 45 !important;
+  --WDS-systems-bubble-surface-business: #0d182d !important; --WDS-systems-bubble-surface-business-RGB: 13, 24, 45 !important;
+  --WDS-content-default: #e8eefb !important;                --WDS-content-default-RGB: 232, 238, 251 !important;
+  --WDS-content-action-default: #e8eefb !important;         --WDS-content-action-default-RGB: 232, 238, 251 !important;
+  --WDS-content-deemphasized: #9aa8c9 !important;           --WDS-content-deemphasized-RGB: 154, 168, 201 !important;
+  --WDS-content-disabled: #3b4d75 !important;               --WDS-content-disabled-RGB: 59, 77, 117 !important;
+  --WDS-lines-outline-default: #3b4d75 !important;          --WDS-lines-outline-default-RGB: 59, 77, 117 !important;
+  --WDS-systems-status-seen: #6b7aa0 !important;            --WDS-systems-status-seen-RGB: 107, 122, 160 !important;
+  --WDS-accent: #4f83ff !important;                         --WDS-accent-RGB: 79, 131, 255 !important;
+  --WDS-accent-emphasized: #7fa8ff !important;              --WDS-accent-emphasized-RGB: 127, 168, 255 !important;
+  --WDS-accent-deemphasized: #16264a !important;            --WDS-accent-deemphasized-RGB: 22, 38, 74 !important;
+  --WDS-content-on-accent: #070e1c !important;              --WDS-content-on-accent-RGB: 7, 14, 28 !important;
+  --WDS-persistent-always-branded: #4f83ff !important;      --WDS-persistent-always-branded-RGB: 79, 131, 255 !important;
+  --WDS-persistent-activity-indicator: #4f83ff !important;  --WDS-persistent-activity-indicator-RGB: 79, 131, 255 !important;
+  --WDS-content-external-link: #7fa8ff !important;          --WDS-content-external-link-RGB: 127, 168, 255 !important;
+}
+body { background-color: #0a1325 !important; } /* shows behind the app while it loads or resizes */
+
+/* Left bar: Channels and Meta AI hidden. Each button sits alone in a wrapper div; hiding the wrapper
+   closes the gap. The Channels icon has no stable attribute, so it's matched by its label in English and Turkish. */
+div:has(> button[data-navbar-item]:is([aria-label="Channels"], [aria-label="Kanallar"], [aria-label="Meta AI"])) { display: none !important; }
+
+/* Start screen (no chat open): blank navy, without WhatsApp's promo cards and shortcuts. */
+[data-testid="intro-panel"] > * { display: none !important; }
+
+/* "Get WhatsApp for Mac" bars under the chat list and search: they're the only bars that carry WhatsApp's app icon
+   (the "loading messages" bar doesn't). The three classes are WhatsApp's own style hashes for that bar; if they change,
+   the bar shows again until this rule is updated. Login screen: the card holding the "Download" button for the Mac app. */
+.x10l6tqk.x1ey2m1c.x178xt8z:has([data-testid="wa-square-icon"]),
+.x1lliihq.xh8yej3:has([data-testid="download-native-client-button"]) { display: none !important; }
+
+/* Chat-list header: a greeting ("Good evening, <first name>") instead of the WhatsApp wordmark; the text comes from main.swift. */
+header[data-testid="chatlist-header"] h2 > * { display: none !important; }
+header[data-testid="chatlist-header"] h2::before {
+  content: var(--navy-greeting, "");
+  font-size: 22px; font-weight: 600; letter-spacing: -0.01em; line-height: 28px; white-space: nowrap;
+  color: var(--WDS-content-default);
+}

@@ -1,0 +1,8 @@
+# build output and generated icon (build.sh redraws it from icon.svg)
+*.app
+AppIcon.icns
+AppIcon.iconset/
+# a personal icon that stays on this Mac
+icon-local.svg
+.DS_Store
+Icon?
